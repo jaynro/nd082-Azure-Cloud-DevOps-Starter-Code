@@ -142,6 +142,7 @@ data "azurerm_image" "image" {
 # Relates with NIC and Availabilty SET
 
 resource "azurerm_linux_virtual_machine" "test" {
+  count                = var.capacity
   name                = "test-machine"
   resource_group_name = azurerm_resource_group.test.name
   location            = azurerm_resource_group.test.location
